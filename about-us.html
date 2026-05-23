@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - MOVA | Premium Ecommerce Brand</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fafaf8;
+      --surface: #fff;
+      --surface-alt: #f5f5f2;
+      --border: #e8e8e3;
+      --text: #1a1a18;
+      --text-secondary: #8a8a84;
+      --accent: #d4a574;
+      --accent-light: #e8c9a0;
+      --error: #e24b4a;
+      --success: #27ae60;
+      --warning: #f39c12;
+      --info: #3498db;
+      --radius: 8px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+      --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.16);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .logo:hover {
+      opacity: 0.8;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+      flex: 1;
+    }
+
+    nav a {
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--accent);
+    }
+
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .header-icons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .search-bar {
+      flex: 1;
+      max-width: 250px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 13px;
+      background: var(--surface-alt);
+      transition: var(--transition);
+    }
+
+    .search-bar input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+    }
+
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: var(--surface-alt);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .icon-btn:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background: var(--error);
+      color: white;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      max-width: 1400px;
+      margin: 20px auto;
+      padding: 0 20px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .breadcrumb a {
+      cursor: pointer;
+      color: var(--accent);
+      transition: var(--transition);
+    }
+
+    .breadcrumb a:hover {
+      color: var(--text);
+    }
+
+    /* Hero Banner */
+    .about-hero {
+      background: linear-gradient(135deg, rgba(212, 165, 116, 0.15), rgba(226, 75, 74, 0.05));
+      padding: 80px 20px;
+      text-align: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .about-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .about-hero-subtitle {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Section */
+    section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+      color: var(--text);
+    }
+
+    /* Our Story Section */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .story-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .story-content p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .story-image {
+      width: 100%;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--accent-light), var(--surface-alt));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 120px;
+    }
+
+    /* Mission Section */
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .mission-card {
+      background: var(--surface);
+      padding: 40px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .mission-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent);
+    }
+
+    .mission-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .mission-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .mission-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Why Choose Us */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 20px;
+      padding: 24px;
+      background: var(--surface);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+
+    .feature-item:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-md);
+    }
+
+    .feature-icon {
+      font-size: 40px;
+      flex-shrink: 0;
+    }
+
+    .feature-content h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .feature-content p {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* Stats Section */
+    .stats-section {
+      background: linear-gradient(135deg, var(--text), rgba(26, 26, 24, 0.95));
+      color: white;
+      padding: 60px 20px;
+      margin-top: 60px;
+    }
+
+    .stats-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+
+    .stat-item h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .stat-item p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    /* Team Section */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .team-card {
+      background: var(--surface);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+
+    .team-card:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .team-image {
+      width: 100%;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--accent-light), var(--surface-alt));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+    }
+
+    .team-info {
+      padding: 24px;
+      text-align: center;
+    }
+
+    .team-name {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .team-role {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .team-bio {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .testimonial-card {
+      background: var(--surface);
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+
+    .testimonial-card:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-md);
+    }
+
+    .testimonial-rating {
+      color: #ffc107;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .testimonial-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .testimonial-avatar {
+      font-size: 32px;
+    }
+
+    .testimonial-info h4 {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .testimonial-info p {
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    /* FAQ Section */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-question {
+      padding: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      user-select: none;
+      transition: var(--transition);
+    }
+
+    .faq-question:hover {
+      background: var(--surface-alt);
+    }
+
+    .faq-toggle {
+      font-size: 18px;
+      transition: var(--transition);
+    }
+
+    .faq-item.open .faq-toggle {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: var(--surface-alt);
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 500px;
+    }
+
+    .faq-answer p {
+      padding: 20px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Newsletter Section */
+    .newsletter-section {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .newsletter-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .newsletter-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .newsletter-section p {
+      font-size: 15px;
+      margin-bottom: 24px;
+      opacity: 0.95;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 14px 16px;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      backdrop-filter: blur(10px);
+    }
+
+    .newsletter-form input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .newsletter-form button {
+      padding: 14px 32px;
+      background: white;
+      color: var(--accent);
+      border: none;
+      border-radius: var(--radius);
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .newsletter-form button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text);
+      color: white;
+      padding: 60px 20px 20px;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-column h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .footer-column a {
+      display: block;
+      font-size: 9px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 20px;
+      text-align: center;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 14px 32px;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--text);
+      transform: translateY(-2px);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 1024px) {
+      .header-content {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      nav {
+        flex: 1 1 100%;
+        gap: 15px;
+        font-size: 13px;
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .mission-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-hero h1 {
+        font-size: 48px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-content {
+        padding: 15px;
+        gap: 15px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .search-bar {
+        display: none;
+      }
+
+      .about-hero {
+        padding: 40px 20px;
+      }
+
+      .about-hero h1 {
+        font-size: 36px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .story-grid {
+        gap: 30px;
+      }
+
+      .story-content h2 {
+        font-size: 24px;
+      }
+
+      .mission-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      section {
+        padding: 40px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-content {
+        padding: 12px;
+        gap: 10px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .icon-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+      }
+
+      .about-hero {
+        padding: 30px 15px;
+      }
+
+      .about-hero h1 {
+        font-size: 28px;
+      }
+
+      .about-hero-subtitle {
+        font-size: 14px;
+      }
+
+      .section-title {
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
+
+      .story-content h2 {
+        font-size: 20px;
+      }
+
+      .story-content p {
+        font-size: 13px;
+      }
+
+      .story-image {
+        font-size: 80px;
+        aspect-ratio: 1;
+      }
+
+      .mission-card {
+        padding: 20px;
+      }
+
+      .mission-icon {
+        font-size: 36px;
+      }
+
+      .feature-item {
+        padding: 16px;
+        gap: 16px;
+      }
+
+      .feature-icon {
+        font-size: 32px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .stat-item h4 {
+        font-size: 36px;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-question {
+        padding: 16px;
+        font-size: 13px;
+      }
+
+      .faq-answer p {
+        padding: 16px;
+        font-size: 12px;
+      }
+
+      .newsletter-section {
+        padding: 40px 20px;
+      }
+
+      .newsletter-section h2 {
+        font-size: 24px;
+      }
+
+      .newsletter-section p {
+        font-size: 13px;
+      }
+
+      section {
+        padding: 30px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <div class="logo" onclick="location.href='index.html'">MOVA</div>
+      <nav>
+        <a onclick="location.href='index.html'">Home</a>
+        <a onclick="location.href='shop-page.html'">Shop</a>
+        <a onclick="location.href='best-sellers.html'">Best Sellers</a>
+        <a onclick="location.href='sale-page.html'">Sale</a>
+        <a class="active">About</a>
+        <a>Contact</a>
+      </nav>
+      <div class="header-icons">
+        <div class="search-bar">
+          <input type="text" placeholder="Search products...">
+        </div>
+        <button class="icon-btn">♥️</button>
+        <button class="icon-btn">👤</button>
+        <button class="icon-btn">
+          🛒
+          <span class="cart-badge">3</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a onclick="location.href='index.html'">Home</a> > <span>About Us</span>
+  </div>
+
+  <!-- Hero Banner -->
+  <section class="about-hero">
+    <h1>About MOVA</h1>
+    <p class="about-hero-subtitle">Discover the story behind our premium ecommerce brand and our commitment to delivering exceptional products and experiences worldwide.</p>
+  </section>
+
+  <!-- Our Story Section -->
+  <section>
+    <div class="story-grid">
+      <div class="story-content">
+        <h2>Our Story</h2>
+        <p>MOVA was born from a passion for curating the best lifestyle products from around the world. What started as a small idea in 2018 has grown into a thriving ecommerce community serving customers in over 50 countries.</p>
+        <p>We believe that premium products should be accessible to everyone. Our mission is to break down barriers and bring luxury living within reach for our global customers.</p>
+        <p>Today, MOVA stands as a trusted brand synonymous with quality, innovation, and customer-first values. Every product in our collection is carefully selected to ensure it meets our rigorous standards for excellence.</p>
+      </div>
+      <div class="story-image">🎯</div>
+    </div>
+  </section>
+
+  <!-- Mission & Values -->
+  <section>
+    <h2 class="section-title">Our Mission & Values</h2>
+    <div class="mission-grid">
+      <div class="mission-card">
+        <div class="mission-icon">✨</div>
+        <h3>Premium Quality</h3>
+        <p>Every product meets our exacting standards for craftsmanship, durability, and design excellence.</p>
+      </div>
+      <div class="mission-card">
+        <div class="mission-icon">💝</div>
+        <h3>Customer First</h3>
+        <p>Your satisfaction is our priority. We stand behind every purchase with support and guarantees.</p>
+      </div>
+      <div class="mission-card">
+        <div class="mission-icon">🌍</div>
+        <h3>Global Community</h3>
+        <p>We serve customers worldwide, delivering authentic products and experiences across borders.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section>
+    <h2 class="section-title">Why Choose MOVA?</h2>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">🚀</div>
+        <div class="feature-content">
+          <h3>Fast Worldwide Shipping</h3>
+          <p>Swift delivery to over 50 countries with real-time tracking and premium packaging.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">💎</div>
+        <div class="feature-content">
+          <h3>Premium Products</h3>
+          <p>Handpicked collection of high-quality items from trusted global suppliers.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🔒</div>
+        <div class="feature-content">
+          <h3>Secure Checkout</h3>
+          <p>SSL encrypted transactions with multiple payment options for your safety.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">💬</div>
+        <div class="feature-content">
+          <h3>24/7 Support</h3>
+          <p>Dedicated customer service team ready to help with any questions or concerns.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">↩️</div>
+        <div class="feature-content">
+          <h3>Easy Returns</h3>
+          <p>Hassle-free 30-day return policy with full refunds and prepaid shipping labels.</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">⭐</div>
+        <div class="feature-content">
+          <h3>Verified Reviews</h3>
+          <p>Transparent customer feedback with verified purchase badges and authentic ratings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <h4>500K+</h4>
+        <p>Happy Customers</p>
+      </div>
+      <div class="stat-item">
+        <h4>2M+</h4>
+        <p>Products Sold</p>
+      </div>
+      <div class="stat-item">
+        <h4>50+</h4>
+        <p>Countries Served</p>
+      </div>
+      <div class="stat-item">
+        <h4>4.9★</h4>
+        <p>Average Rating</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section>
+    <h2 class="section-title">Meet the Team</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-image">👨‍💼</div>
+        <div class="team-info">
+          <div class="team-name">Alex Chen</div>
+          <div class="team-role">Founder & CEO</div>
+          <div class="team-bio">Visionary leader with 15+ years in ecommerce. Passionate about building trusted brands.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-image">👩‍💼</div>
+        <div class="team-info">
+          <div class="team-name">Sarah Mitchell</div>
+          <div class="team-role">Chief Product Officer</div>
+          <div class="team-bio">Procurement expert dedicated to sourcing the finest products globally.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-image">👨‍💻</div>
+        <div class="team-info">
+          <div class="team-name">James Park</div>
+          <div class="team-role">Chief Technology Officer</div>
+          <div class="team-bio">Tech innovator building seamless shopping experiences for millions.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section>
+    <h2 class="section-title">What Our Customers Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-rating">★★★★★</div>
+        <div class="testimonial-text">"MOVA has completely transformed how I shop online. The quality is exceptional and the service is outstanding. I'm a customer for life!"</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">😊</div>
+          <div class="testimonial-info">
+            <h4>Maria Gonzalez</h4>
+            <p>Verified Buyer</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-rating">★★★★★</div>
+        <div class="testimonial-text">"The shipping was lightning fast, packaging was premium, and every item exceeded my expectations. Highly recommend MOVA!"</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">😄</div>
+          <div class="testimonial-info">
+            <h4>David Thompson</h4>
+            <p>Verified Buyer</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-rating">★★★★★</div>
+        <div class="testimonial-text">"Customer support is incredible. I had a question and they responded within minutes. MOVA truly cares about their customers."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">🥰</div>
+          <div class="testimonial-info">
+            <h4>Emma Wilson</h4>
+            <p>Verified Buyer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>What makes MOVA different from other ecommerce stores?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>MOVA stands out through our rigorous product curation, premium customer service, fast worldwide shipping, and unwavering commitment to quality. Every product is handpicked and tested to ensure it meets our exacting standards before reaching our customers.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>How long does shipping take?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Most orders ship within 2-3 business days. Delivery times vary by location but typically range from 5-15 business days internationally. You'll receive real-time tracking updates for your order.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>What is your return policy?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>We offer a hassle-free 30-day return policy. If you're not completely satisfied with your purchase, simply initiate a return through your account and we'll provide a prepaid shipping label. Full refunds are processed within 5-7 business days of receiving your return.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Is my payment information secure?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Absolutely. We use SSL encryption and industry-leading security protocols to protect your personal and financial information. MOVA is PCI-DSS compliant and never stores your complete credit card details.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>How can I track my order?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Once your order ships, you'll receive a tracking number via email. You can use this number to monitor your package's journey in real-time through our website or the carrier's tracking page.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter-section">
+    <div class="newsletter-content">
+      <h2>Join Our Community</h2>
+      <p>Get exclusive deals, early access to new products, and premium lifestyle tips delivered to your inbox.</p>
+      <form class="newsletter-form" onsubmit="handleNewsletterSignup(event)">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit" class="newsletter-form button">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>MOVA</h3>
+        <p style="font-size: 12px; color: rgba(255, 255, 255, 0.7); margin-bottom: 15px;">Premium dropshipping store with curated products for modern lifestyle.</p>
+      </div>
+      <div class="footer-column">
+        <h3>Shop</h3>
+        <a onclick="location.href='shop-page.html'">All Products</a>
+        <a onclick="location.href='best-sellers.html'">Best Sellers</a>
+        <a onclick="location.href='sale-page.html'">Sale</a>
+        <a href="https://mova.gg/new">New Arrivals</a>
+      </div>
+      <div class="footer-column">
+        <h3>Support</h3>
+        <a href="https://mova.gg/contact">Contact Us</a>
+        <a href="https://mova.gg/faq">FAQ</a>
+        <a href="https://mova.gg/shipping">Shipping Info</a>
+        <a href="https://mova.gg/returns">Returns</a>
+      </div>
+      <div class="footer-column">
+        <h3>Legal</h3>
+        <a href="https://mova.gg/privacy">Privacy Policy</a>
+        <a href="https://mova.gg/terms">Terms of Service</a>
+        <a href="https://mova.gg/cookies">Cookie Policy</a>
+      </div>
+      <div class="footer-column">
+        <h3>Connect</h3>
+        <a href="https://mova.gg/instagram">Instagram</a>
+        <a href="https://mova.gg/facebook">Facebook</a>
+        <a href="https://mova.gg/twitter">Twitter</a>
+        <a href="https://mova.gg/tiktok">TikTok</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 MOVA. All rights reserved. | Premium Dropshipping Experience</p>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle FAQ
+    function toggleFaq(element) {
+      const faqItem = element.parentElement;
+      faqItem.classList.toggle('open');
+    }
+
+    // Newsletter Signup
+    function handleNewsletterSignup(event) {
+      event.preventDefault();
+      const form = event.target;
+      const email = form.querySelector('input[type="email"]').value;
+      
+      // Simple validation
+      if (email) {
+        alert(`Thank you for subscribing with ${email}! Check your inbox for exclusive deals.`);
+        form.reset();
+      }
+    }
+  </script>
+</body>
+</html>

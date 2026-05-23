@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - MOVA | Premium Support</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fafaf8;
+      --surface: #fff;
+      --surface-alt: #f5f5f2;
+      --border: #e8e8e3;
+      --text: #1a1a18;
+      --text-secondary: #8a8a84;
+      --accent: #d4a574;
+      --accent-light: #e8c9a0;
+      --error: #e24b4a;
+      --success: #27ae60;
+      --warning: #f39c12;
+      --info: #3498db;
+      --radius: 8px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+      --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.16);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .logo:hover {
+      opacity: 0.8;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+      flex: 1;
+    }
+
+    nav a {
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--accent);
+    }
+
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .header-icons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .search-bar {
+      flex: 1;
+      max-width: 250px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 13px;
+      background: var(--surface-alt);
+      transition: var(--transition);
+    }
+
+    .search-bar input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+    }
+
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: var(--surface-alt);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .icon-btn:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background: var(--error);
+      color: white;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      max-width: 1400px;
+      margin: 20px auto;
+      padding: 0 20px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .breadcrumb a {
+      cursor: pointer;
+      color: var(--accent);
+      transition: var(--transition);
+    }
+
+    .breadcrumb a:hover {
+      color: var(--text);
+    }
+
+    /* Hero Banner */
+    .contact-hero {
+      background: linear-gradient(135deg, rgba(212, 165, 116, 0.15), rgba(226, 75, 74, 0.05));
+      padding: 80px 20px;
+      text-align: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .contact-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .contact-hero-subtitle {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Main Section */
+    section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+      color: var(--text);
+    }
+
+    /* Contact Grid */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* Contact Form */
+    .contact-form-container {
+      background: var(--surface);
+      padding: 40px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+    }
+
+    .contact-form-container h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      background: var(--surface-alt);
+      color: var(--text);
+      transition: var(--transition);
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 14px 32px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-submit:hover {
+      background: var(--text);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Support Info */
+    .support-info {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .support-card {
+      background: var(--surface);
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+
+    .support-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+    }
+
+    .support-card-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .support-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .support-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .support-card .email-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .support-card .email-link:hover {
+      color: var(--text);
+    }
+
+    /* 24/7 Badge */
+    .badge-24-7 {
+      display: inline-block;
+      background: var(--success);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 12px;
+      text-transform: uppercase;
+    }
+
+    /* Quick Contact Categories */
+    .quick-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+    }
+
+    .category-card {
+      background: var(--surface);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .category-card:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .category-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .category-name {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* Social Media Section */
+    .social-section {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), rgba(226, 75, 74, 0.05));
+    }
+
+    .social-content {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .social-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .social-content p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .social-link:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-8px);
+      color: white;
+    }
+
+    /* Trust Section */
+    .trust-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .trust-item {
+      text-align: center;
+      padding: 20px;
+      background: var(--surface);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .trust-item-icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .trust-item h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .trust-item p {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* Newsletter */
+    .newsletter-section {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .newsletter-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .newsletter-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .newsletter-content p {
+      font-size: 15px;
+      margin-bottom: 24px;
+      opacity: 0.95;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 8px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 14px 16px;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      backdrop-filter: blur(10px);
+    }
+
+    .newsletter-form input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .newsletter-form button {
+      padding: 14px 32px;
+      background: white;
+      color: var(--accent);
+      border: none;
+      border-radius: var(--radius);
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .newsletter-form button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-question {
+      padding: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      user-select: none;
+      transition: var(--transition);
+    }
+
+    .faq-question:hover {
+      background: var(--surface-alt);
+    }
+
+    .faq-toggle {
+      font-size: 18px;
+      transition: var(--transition);
+    }
+
+    .faq-item.open .faq-toggle {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: var(--surface-alt);
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 500px;
+    }
+
+    .faq-answer p {
+      padding: 20px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text);
+      color: white;
+      padding: 60px 20px 20px;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-column h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .footer-column a {
+      display: block;
+      font-size: 9px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 20px;
+      text-align: center;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 1024px) {
+      .header-content {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      nav {
+        flex: 1 1 100%;
+        gap: 15px;
+        font-size: 13px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .contact-hero h1 {
+        font-size: 48px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-content {
+        padding: 15px;
+        gap: 15px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .search-bar {
+        display: none;
+      }
+
+      .contact-hero {
+        padding: 40px 20px;
+      }
+
+      .contact-hero h1 {
+        font-size: 36px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .contact-form-container {
+        padding: 24px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      section {
+        padding: 40px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-content {
+        padding: 12px;
+        gap: 10px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .icon-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+      }
+
+      .contact-hero {
+        padding: 30px 15px;
+      }
+
+      .contact-hero h1 {
+        font-size: 28px;
+      }
+
+      .contact-hero-subtitle {
+        font-size: 14px;
+      }
+
+      .section-title {
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
+
+      .contact-form-container {
+        padding: 20px;
+      }
+
+      .contact-form-container h2 {
+        font-size: 20px;
+      }
+
+      .form-group label {
+        font-size: 12px;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        padding: 10px 12px;
+        font-size: 12px;
+      }
+
+      .btn-submit {
+        padding: 12px 20px;
+        font-size: 12px;
+      }
+
+      .support-card {
+        padding: 16px;
+      }
+
+      .support-card h3 {
+        font-size: 14px;
+      }
+
+      .support-card p {
+        font-size: 12px;
+      }
+
+      .quick-categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .category-card {
+        padding: 16px;
+      }
+
+      .category-icon {
+        font-size: 28px;
+      }
+
+      .category-name {
+        font-size: 12px;
+      }
+
+      .social-links {
+        gap: 12px;
+      }
+
+      .social-link {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .newsletter-form input {
+        width: 100%;
+      }
+
+      .faq-question {
+        padding: 16px;
+        font-size: 13px;
+      }
+
+      .faq-answer p {
+        padding: 16px;
+        font-size: 12px;
+      }
+
+      section {
+        padding: 30px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <div class="logo" onclick="location.href='index.html'">MOVA</div>
+      <nav>
+        <a onclick="location.href='index.html'">Home</a>
+        <a onclick="location.href='shop-page.html'">Shop</a>
+        <a onclick="location.href='best-sellers.html'">Best Sellers</a>
+        <a onclick="location.href='sale-page.html'">Sale</a>
+        <a onclick="location.href='about-us.html'">About</a>
+        <a class="active">Contact</a>
+      </nav>
+      <div class="header-icons">
+        <div class="search-bar">
+          <input type="text" placeholder="Search products...">
+        </div>
+        <button class="icon-btn">♥️</button>
+        <button class="icon-btn">👤</button>
+        <button class="icon-btn">
+          🛒
+          <span class="cart-badge">3</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a onclick="location.href='index.html'">Home</a> > <span>Contact</span>
+  </div>
+
+  <!-- Hero Banner -->
+  <section class="contact-hero">
+    <h1>Contact Us</h1>
+    <p class="contact-hero-subtitle">We're here to help. Get in touch with our friendly support team for any questions or concerns.</p>
+  </section>
+
+  <!-- Contact Form & Support Info -->
+  <section>
+    <div class="contact-grid">
+      <!-- Contact Form -->
+      <div class="contact-form-container">
+        <h2>Send us a Message</h2>
+        <form onsubmit="handleFormSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name *</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject *</label>
+            <select id="subject" name="subject" required>
+              <option value="">Select a subject...</option>
+              <option value="order">Order Issue</option>
+              <option value="shipping">Shipping Question</option>
+              <option value="return">Return/Refund</option>
+              <option value="product">Product Question</option>
+              <option value="payment">Payment Issue</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" required placeholder="Tell us more about your inquiry..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Support Info -->
+      <div class="support-info">
+        <div class="support-card">
+          <div class="support-card-icon">📧</div>
+          <h3>Email Support</h3>
+          <p>
+            For detailed inquiries, email us at:
+            <br><a href="mailto:support@mova.gg" class="email-link">support@mova.gg</a>
+          </p>
+          <p style="font-size: 11px; margin-top: 12px; color: var(--text-secondary);">Average response time: 2-4 hours</p>
+        </div>
+
+        <div class="support-card">
+          <div class="support-card-icon">💬</div>
+          <h3>Live Chat</h3>
+          <p>Chat with our support team instantly during business hours.</p>
+          <span class="badge-24-7">24/7 Available</span>
+        </div>
+
+        <div class="support-card">
+          <div class="support-card-icon">📞</div>
+          <h3>Business Hours</h3>
+          <p>
+            Monday - Friday: 9 AM - 6 PM (EST)
+            <br>Saturday: 10 AM - 4 PM (EST)
+            <br>Sunday: Closed
+          </p>
+        </div>
+
+        <div class="support-card">
+          <div class="support-card-icon">⚡</div>
+          <h3>Track Your Order</h3>
+          <p>Use your order number to track shipments and get real-time updates on delivery status.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Contact Categories -->
+  <section>
+    <h2 class="section-title">Quick Help Categories</h2>
+    <div class="quick-categories">
+      <div class="category-card" onclick="location.href='#faq'">
+        <div class="category-icon">🚚</div>
+        <div class="category-name">Shipping Info</div>
+      </div>
+      <div class="category-card" onclick="location.href='#faq'">
+        <div class="category-icon">↩️</div>
+        <div class="category-name">Returns & Refunds</div>
+      </div>
+      <div class="category-card" onclick="location.href='#faq'">
+        <div class="category-icon">📦</div>
+        <div class="category-name">Track Order</div>
+      </div>
+      <div class="category-card" onclick="location.href='#faq'">
+        <div class="category-icon">💳</div>
+        <div class="category-name">Payment Methods</div>
+      </div>
+      <div class="category-card" onclick="location.href='#faq'">
+        <div class="category-icon">❌</div>
+        <div class="category-name">Cancellations</div>
+      </div>
+      <div class="category-card" onclick="location.href='#faq'">
+        <div class="category-icon">❓</div>
+        <div class="category-name">Product FAQ</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Media Section -->
+  <section class="social-section">
+    <div class="social-content">
+      <h2>Connect With Us</h2>
+      <p>Follow MOVA on social media for exclusive deals, product updates, and lifestyle inspiration.</p>
+      <div class="social-links">
+        <a href="https://mova.gg/instagram" class="social-link" title="Instagram">📱</a>
+        <a href="https://mova.gg/tiktok" class="social-link" title="TikTok">🎵</a>
+        <a href="https://mova.gg/facebook" class="social-link" title="Facebook">👍</a>
+        <a href="https://mova.gg/twitter" class="social-link" title="Twitter">𝕏</a>
+        <a href="https://mova.gg/discord" class="social-link" title="Discord">💜</a>
+      </div>
+
+      <!-- Trust Elements -->
+      <div class="trust-section">
+        <div class="trust-item">
+          <div class="trust-item-icon">🔒</div>
+          <h3>Secure Support</h3>
+          <p>All communications encrypted & protected</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-item-icon">✓</div>
+          <h3>Verified Business</h3>
+          <p>Trusted by 500K+ customers worldwide</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-item-icon">⭐</div>
+          <h3>Customer Satisfaction</h3>
+          <p>4.9★ average rating from verified buyers</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-item-icon">🌍</div>
+          <h3>Global Support</h3>
+          <p>Support in 15+ languages available</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq-section">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>How long does shipping take?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Most orders ship within 2-3 business days. Delivery times vary by location but typically range from 5-15 business days internationally. You'll receive real-time tracking updates for your order via email.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>What is your return policy?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>We offer a hassle-free 30-day return policy. If you're not completely satisfied with your purchase, initiate a return through your account and we'll provide a prepaid shipping label. Full refunds are processed within 5-7 business days of receiving your return.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Can I cancel or modify my order?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Orders can be cancelled within 1 hour of placement. After that, the order enters processing and cannot be cancelled. Contact our support team immediately if you need to make changes within the 1-hour window.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>What payment methods do you accept?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>We accept all major credit cards (Visa, Mastercard, American Express), PayPal, Apple Pay, Google Pay, and cryptocurrencies. All payments are processed securely with SSL encryption.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Do you offer international shipping?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes! We ship to over 50 countries worldwide. Shipping costs vary by destination. International orders may be subject to customs duties and taxes in your country. We provide tracking for all international shipments.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Is my personal information safe?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Absolutely. We use industry-leading SSL encryption and PCI-DSS compliance to protect your data. We never store complete credit card information and follow strict privacy policies. Your personal information is never shared with third parties.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter-section">
+    <div class="newsletter-content">
+      <h2>Stay Updated</h2>
+      <p>Subscribe to our newsletter for exclusive deals, product launches, and lifestyle tips.</p>
+      <form class="newsletter-form" onsubmit="handleNewsletterSignup(event)">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>MOVA</h3>
+        <p style="font-size: 12px; color: rgba(255, 255, 255, 0.7); margin-bottom: 15px;">Premium dropshipping store with curated products for modern lifestyle.</p>
+      </div>
+      <div class="footer-column">
+        <h3>Shop</h3>
+        <a onclick="location.href='shop-page.html'">All Products</a>
+        <a onclick="location.href='best-sellers.html'">Best Sellers</a>
+        <a onclick="location.href='sale-page.html'">Sale</a>
+        <a href="https://mova.gg/new">New Arrivals</a>
+      </div>
+      <div class="footer-column">
+        <h3>Support</h3>
+        <a href="mailto:support@mova.gg">Email Support</a>
+        <a href="https://mova.gg/faq">FAQ</a>
+        <a href="https://mova.gg/shipping">Shipping Info</a>
+        <a href="https://mova.gg/returns">Returns</a>
+      </div>
+      <div class="footer-column">
+        <h3>Legal</h3>
+        <a href="https://mova.gg/privacy">Privacy Policy</a>
+        <a href="https://mova.gg/terms">Terms of Service</a>
+        <a href="https://mova.gg/cookies">Cookie Policy</a>
+      </div>
+      <div class="footer-column">
+        <h3>Connect</h3>
+        <a href="https://mova.gg/instagram">Instagram</a>
+        <a href="https://mova.gg/facebook">Facebook</a>
+        <a href="https://mova.gg/twitter">Twitter</a>
+        <a href="https://mova.gg/tiktok">TikTok</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 MOVA. All rights reserved. | Premium Dropshipping Experience</p>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle FAQ
+    function toggleFaq(element) {
+      const faqItem = element.parentElement;
+      faqItem.classList.toggle('open');
+    }
+
+    // Handle Form Submit
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const name = form.querySelector('#name').value;
+      const email = form.querySelector('#email').value;
+      const subject = form.querySelector('#subject').value;
+      const message = form.querySelector('#message').value;
+
+      // Simple validation
+      if (name && email && subject && message) {
+        alert(`Thank you ${name}! We've received your message. Our support team will respond within 2-4 hours.`);
+        form.reset();
+      }
+    }
+
+    // Newsletter Signup
+    function handleNewsletterSignup(event) {
+      event.preventDefault();
+      const form = event.target;
+      const email = form.querySelector('input[type="email"]').value;
+
+      if (email) {
+        alert(`Thank you! You're now subscribed to MOVA updates at ${email}.`);
+        form.reset();
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best Sellers - MOVA Premium Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #fafaf8;
+      --surface: #ffffff;
+      --surface-alt: #f5f5f2;
+      --border: #e8e8e3;
+      --text: #1a1a18;
+      --text-secondary: #8a8a84;
+      --accent: #d4a574;
+      --error: #e24b4a;
+      --success: #27ae60;
+      --radius: 8px;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 16px 48px rgba(0,0,0,0.12);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+      gap: 30px;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -1px;
+      cursor: pointer;
+    }
+
+    .search-bar {
+      flex: 1;
+      max-width: 400px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      background: var(--surface-alt);
+      transition: var(--transition);
+    }
+
+    .search-bar input:focus {
+      outline: none;
+      border-color: var(--text);
+      background: var(--surface);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius);
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .icon-btn:hover {
+      background: var(--surface-alt);
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background: var(--accent);
+      color: white;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      padding: 12px 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    nav a {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      cursor: pointer;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--text);
+    }
+
+    /* HERO BANNER */
+    .hero-banner {
+      background: linear-gradient(135deg, var(--surface-alt) 0%, var(--surface) 100%);
+      padding: 80px 40px;
+      text-align: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .trending-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .hero-banner h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: white;
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text);
+      background: var(--surface-alt);
+    }
+
+    /* TRUST SECTION */
+    .trust-strip {
+      background: var(--surface-alt);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .trust-icon {
+      font-size: 16px;
+    }
+
+    /* SECTION */
+    .section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+
+    /* CAROUSEL */
+    .carousel-container {
+      position: relative;
+      margin-bottom: 48px;
+      overflow: hidden;
+      border-radius: var(--radius);
+    }
+
+    .carousel {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 4px;
+      scrollbar-width: none;
+    }
+
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* PRODUCT GRID */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    .product-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      group: 1;
+    }
+
+    .product-card:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--shadow-lg);
+      border-color: transparent;
+    }
+
+    .product-image-container {
+      position: relative;
+      aspect-ratio: 1;
+      background: var(--surface-alt);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 100px;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 100px;
+      transition: var(--transition);
+    }
+
+    .product-card:hover .product-image {
+      transform: scale(1.1);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--accent);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      z-index: 2;
+    }
+
+    .product-badge.bestseller {
+      background: var(--text);
+    }
+
+    .product-badge.hot {
+      background: var(--error);
+      animation: pulse 2s infinite;
+    }
+
+    .product-label {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      z-index: 2;
+    }
+
+    .product-label.trending {
+      background: rgba(212, 165, 116, 0.1);
+      color: var(--accent);
+    }
+
+    .product-label.limited {
+      color: var(--error);
+    }
+
+    .sales-counter {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      z-index: 2;
+    }
+
+    .wishlist-btn {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      z-index: 2;
+    }
+
+    .wishlist-btn:hover {
+      background: white;
+      transform: scale(1.1);
+    }
+
+    .card-actions {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      gap: 8px;
+      padding: 12px;
+      background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
+      opacity: 0;
+      transform: translateY(20px);
+      transition: var(--transition);
+    }
+
+    .product-card:hover .card-actions {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-btn {
+      flex: 1;
+      padding: 10px;
+      background: var(--text);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .card-btn:hover {
+      background: var(--accent);
+    }
+
+    .card-btn.secondary {
+      background: white;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .card-btn.secondary:hover {
+      background: var(--surface-alt);
+    }
+
+    .product-info {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-category {
+      font-size: 11px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .product-name {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-size: 12px;
+    }
+
+    .stars {
+      color: var(--accent);
+      letter-spacing: 2px;
+    }
+
+    .rating-count {
+      color: var(--text-secondary);
+    }
+
+    .social-proof {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .social-proof-highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .product-price-container {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .product-price {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .product-old-price {
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-decoration: line-through;
+    }
+
+    .discount-percentage {
+      font-size: 11px;
+      color: var(--error);
+      font-weight: 600;
+      margin-left: auto;
+    }
+
+    /* LIVE PURCHASE NOTIFICATION */
+    .purchase-notification {
+      position: fixed;
+      bottom: 28px;
+      left: 28px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      font-size: 12px;
+      box-shadow: var(--shadow-lg);
+      animation: slideInLeft 0.5s ease;
+      z-index: 1000;
+    }
+
+    .purchase-notification.hide {
+      display: none;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    /* REVIEWS SECTION */
+    .reviews-bg {
+      background: var(--surface-alt);
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    .review-card {
+      background: var(--surface);
+      padding: 32px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    .review-stars {
+      color: var(--accent);
+      font-size: 14px;
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+    }
+
+    .review-text {
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--surface-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .author-info h4 {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .author-info p {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--text);
+      color: white;
+      padding: 60px 40px 20px;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-col a {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      margin-bottom: 12px;
+      display: block;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .footer-col a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.6);
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    /* TOAST */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: var(--text);
+      color: white;
+      padding: 14px 24px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: var(--transition);
+      z-index: 9000;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .header-top {
+        padding: 12px 20px;
+        gap: 12px;
+      }
+
+      .search-bar {
+        max-width: 200px;
+      }
+
+      nav {
+        gap: 16px;
+        padding: 10px 20px;
+      }
+
+      .hero-banner {
+        padding: 60px 20px;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .hero-stats {
+        gap: 24px;
+      }
+
+      .trust-strip {
+        padding: 16px 20px;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-top {
+        flex-wrap: wrap;
+      }
+
+      .search-bar {
+        order: 3;
+        flex-basis: 100%;
+        max-width: 100%;
+      }
+
+      .hero-banner h1 {
+        font-size: 28px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .product-image-container {
+        font-size: 60px;
+      }
+
+      .purchase-notification {
+        left: 12px;
+        right: 12px;
+        bottom: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-top">
+    <div class="logo" onclick="location.href='index.html'">MOVA</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search best sellers...">
+    </div>
+    <div class="header-actions">
+      <button class="icon-btn">❤️</button>
+      <button class="icon-btn">👤</button>
+      <button class="icon-btn">
+        🛍️
+        <span class="cart-badge">0</span>
+      </button>
+    </div>
+  </div>
+  <nav>
+    <a onclick="location.href='index.html'">Home</a>
+    <a onclick="location.href='shop-page.html'">Shop</a>
+    <a class="active">Best Sellers</a>
+    <a onclick="location.href='sale-page.html'">Sale</a>
+    <a onclick="location.href='about-us.html'">About</a>
+    <a onclick="location.href='contact-us.html'">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO BANNER -->
+<section class="hero-banner">
+  <div class="trending-badge">🔥 Trending Now</div>
+  <h1>Best Sellers</h1>
+  <p class="hero-subtitle">Join thousands of happy customers enjoying our most popular premium products.</p>
+  
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-value">50K+</div>
+      <div class="stat-label">Sold This Month</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">4.9★</div>
+      <div class="stat-label">Average Rating</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">24/7</div>
+      <div class="stat-label">Customer Support</div>
+    </div>
+  </div>
+
+  <div class="hero-actions">
+    <button class="btn btn-primary">Shop Best Sellers →</button>
+    <button class="btn btn-secondary">View Trending →</button>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item">
+    <span class="trust-icon">✓</span>
+    <span><strong>Secure Checkout</strong> - SSL Protected</span>
+  </div>
+  <div class="trust-item">
+    <span class="trust-icon">🚀</span>
+    <span><strong>Free Shipping</strong> - Orders over $50</span>
+  </div>
+  <div class="trust-item">
+    <span class="trust-icon">↩️</span>
+    <span><strong>30-Day Refunds</strong> - No Questions</span>
+  </div>
+  <div class="trust-item">
+    <span class="trust-icon">💬</span>
+    <span><strong>24/7 Support</strong> - Always Here</span>
+  </div>
+</div>
+
+<!-- FEATURED BEST SELLERS -->
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">Most Popular Items</h2>
+  </div>
+  <div class="carousel-container">
+    <div class="carousel" id="featured-carousel">
+      <!-- Featured products will be inserted here -->
+    </div>
+  </div>
+</section>
+
+<!-- ALL BEST SELLERS -->
+<section class="section">
+  <div class="section-header">
+    <h2 class="section-title">All Best Sellers</h2>
+  </div>
+  <div class="product-grid" id="bestsellers-grid">
+    <!-- Products will be inserted here -->
+  </div>
+</section>
+
+<!-- CUSTOMER REVIEWS -->
+<section class="section reviews-bg">
+  <div class="section-header" style="margin-bottom: 48px;">
+    <h2 class="section-title">⭐ 10,000+ Happy Customers</h2>
+  </div>
+  <div class="review-grid" id="reviews-grid">
+    <!-- Reviews will be inserted here -->
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-col">
+      <h4>MOVA</h4>
+      <p style="font-size: 13px; color: rgba(255, 255, 255, 0.7); line-height: 1.6; margin-bottom: 20px;">The #1 trusted destination for premium dropshipping products worldwide.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <a href="https://mova.gg/shop">All Products</a>
+      <a href="https://mova.gg/new">New Arrivals</a>
+      <a href="https://mova.gg/bestsellers">Best Sellers</a>
+      <a href="https://mova.gg/sale">Sale</a>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="https://mova.gg/contact">Contact</a>
+      <a href="https://mova.gg/shipping">Shipping</a>
+      <a href="https://mova.gg/returns">Returns</a>
+      <a href="https://mova.gg/faq">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="https://mova.gg/privacy">Privacy</a>
+      <a href="https://mova.gg/terms">Terms</a>
+      <a href="https://mova.gg/refund">Refund Policy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 MOVA. All rights reserved.</span>
+    <span>Trusted by 500K+ customers worldwide</span>
+  </div>
+</footer>
+
+<!-- PURCHASE NOTIFICATION -->
+<div class="purchase-notification" id="purchase-notification" style="display: none;">
+  <span id="notification-text"></span>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  // PRODUCTS DATA
+  const products = [
+    { id: 1, name: 'Premium Wireless Headphones', category: 'Electronics', price: 89, oldPrice: 129, emoji: '🎧', badge: 'Bestseller', hot: true, rating: 5, reviews: 2341, sold: '3.2k', trending: true, limited: false },
+    { id: 2, name: 'Minimalist Leather Wallet', category: 'Accessories', price: 45, oldPrice: 65, emoji: '👛', badge: 'Customer Favorite', hot: false, rating: 4.8, reviews: 1829, sold: '2.1k', trending: false, limited: false },
+    { id: 3, name: 'Ceramic Pour-Over Coffee', category: 'Kitchen', price: 64, oldPrice: 80, emoji: '☕', badge: 'Hot Item', hot: true, rating: 5, reviews: 956, sold: '1.8k', trending: true, limited: true },
+    { id: 4, name: 'European Linen Blanket', category: 'Home', price: 52, oldPrice: 79, emoji: '🛋️', badge: 'Most Ordered', hot: false, rating: 4.9, reviews: 1204, sold: '2.8k', trending: true, limited: false },
+    { id: 5, name: 'Mechanical Keyboard TKL', category: 'Tech', price: 119, oldPrice: 149, emoji: '⌨️', badge: 'Bestseller', hot: true, rating: 5, reviews: 3421, sold: '4.2k', trending: true, limited: false },
+    { id: 6, name: 'Glass Water Bottle 1L', category: 'Lifestyle', price: 28, oldPrice: 42, emoji: '🫙', badge: 'Trending', hot: false, rating: 4.7, reviews: 891, sold: '1.5k', trending: true, limited: false },
+    { id: 7, name: 'Bamboo Desk Organizer', category: 'Home', price: 38, oldPrice: 48, emoji: '🪴', badge: 'Hot Item', hot: true, rating: 4.6, reviews: 567, sold: '950', trending: false, limited: true },
+    { id: 8, name: 'Portable Espresso Maker', category: 'Kitchen', price: 74, oldPrice: 99, emoji: '☕', badge: 'Bestseller', hot: true, rating: 4.9, reviews: 2134, sold: '3.5k', trending: true, limited: false },
+    { id: 9, name: 'Merino Wool Socks (3pack)', category: 'Apparel', price: 32, oldPrice: 45, emoji: '🧦', badge: 'Customer Favorite', hot: false, rating: 4.8, reviews: 1678, sold: '2.3k', trending: false, limited: false },
+    { id: 10, name: 'LED Reading Lamp', category: 'Lighting', price: 55, oldPrice: 70, emoji: '💡', badge: 'Hot Item', hot: true, rating: 4.9, reviews: 2891, sold: '4.1k', trending: true, limited: false },
+    { id: 11, name: 'Natural Soy Candle Set', category: 'Home', price: 42, oldPrice: 58, emoji: '🕯️', badge: 'Most Ordered', hot: false, rating: 5, reviews: 1345, sold: '2.6k', trending: false, limited: false },
+    { id: 12, name: 'Canvas Tote Bag', category: 'Accessories', price: 22, oldPrice: 35, emoji: '🛍️', badge: 'Customer Favorite', hot: false, rating: 4.7, reviews: 892, sold: '1.2k', trending: true, limited: true },
+  ];
+
+  function renderProductCard(product, isCarousel = false) {
+    const discount = product.oldPrice ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100) : 0;
+    const cardClass = isCarousel ? 'product-card' : 'product-card';
+    
+    return `
+      <div class="${cardClass}" ${isCarousel ? 'style="flex-shrink: 0; width: 280px;"' : ''}>
+        <div class="product-image-container">
+          <div class="product-image">${product.emoji}</div>
+          ${product.badge ? `<span class="product-badge ${product.hot ? 'hot' : 'bestseller'}">${product.badge}</span>` : ''}
+          ${product.trending ? `<span class="product-label trending">Trending</span>` : ''}
+          ${product.limited ? `<span class="product-label limited">Limited Stock</span>` : ''}
+          <div class="sales-counter">Sold: ${product.sold}</div>
+          <button class="wishlist-btn">♡</button>
+          <div class="card-actions">
+            <button class="card-btn" onclick="addToCart('${product.name}')">Add to Cart</button>
+            <button class="card-btn secondary">Quick View</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-category">${product.category}</div>
+          <div class="product-name">${product.name}</div>
+          <div class="product-rating">
+            <span class="stars">${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5 - Math.floor(product.rating))}</span>
+            <span class="rating-count">(${(product.reviews / 1000).toFixed(1)}k)</span>
+          </div>
+          <div class="social-proof">
+            <span class="social-proof-highlight">${product.sold} sold</span> this month
+          </div>
+          <div class="product-price-container">
+            <span class="product-price">$${product.price}</span>
+            ${product.oldPrice ? `<span class="product-old-price">$${product.oldPrice}</span>` : ''}
+            ${discount > 0 ? `<span class="discount-percentage">-${discount}%</span>` : ''}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderBestsellers() {
+    const grid = document.getElementById('bestsellers-grid');
+    grid.innerHTML = products.map(p => renderProductCard(p)).join('');
+
+    const carousel = document.getElementById('featured-carousel');
+    carousel.innerHTML = products.slice(0, 6).map(p => renderProductCard(p, true)).join('');
+  }
+
+  function addToCart(productName) {
+    showToast(`✓ ${productName} added to cart!`);
+    showPurchaseNotification();
+  }
+
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+
+  function showPurchaseNotification() {
+    const notification = document.getElementById('purchase-notification');
+    const names = ['Sarah', 'Mike', 'Emma', 'Alex', 'Jessica', 'David'];
+    const products_list = ['Headphones', 'Wallet', 'Coffee Set', 'Blanket', 'Keyboard', 'Water Bottle'];
+    
+    const randomName = names[Math.floor(Math.random() * names.length)];
+    const randomProduct = products_list[Math.floor(Math.random() * products_list.length)];
+    
+    notification.querySelector('#notification-text').textContent = `✓ ${randomName} just bought ${randomProduct}`;
+    notification.style.display = 'block';
+    
+    setTimeout(() => {
+      notification.style.display = 'none';
+    }, 4000);
+  }
+
+  // INITIALIZE
+  document.addEventListener('DOMContentLoaded', function() {
+    renderBestsellers();
+
+    // REVIEWS
+    const reviews = [
+      { name: 'Sarah Johnson', role: 'Verified Buyer', text: 'Amazing quality! Better than I expected. Fast shipping and excellent customer service!', rating: 5, emoji: '😍' },
+      { name: 'Michael Chen', role: 'Verified Buyer', text: 'Best purchase ever. Premium quality, great price. Definitely buying again!', rating: 5, emoji: '🥰' },
+      { name: 'Emma Davis', role: 'Verified Buyer', text: 'Worth every penny. Love the attention to detail. TikTok recommend this!', rating: 5, emoji: '😊' },
+    ];
+
+    const reviewsGrid = document.getElementById('reviews-grid');
+    reviewsGrid.innerHTML = reviews.map(r => `
+      <div class="review-card">
+        <div class="review-stars">${'★'.repeat(r.rating)}</div>
+        <div class="review-text">"${r.text}"</div>
+        <div class="review-author">
+          <div class="author-avatar">${r.emoji}</div>
+          <div class="author-info">
+            <h4>${r.name}</h4>
+            <p>${r.role}</p>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    // RANDOM PURCHASE NOTIFICATIONS
+    setInterval(showPurchaseNotification, 15000);
+  });
+
+  // CAROUSEL SCROLL
+  const carousel = document.getElementById('featured-carousel');
+  if (carousel) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    carousel.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - carousel.offsetLeft;
+      scrollLeft = carousel.scrollLeft;
+    });
+
+    carousel.addEventListener('mouseleave', () => { isDown = false; });
+    carousel.addEventListener('mouseup', () => { isDown = false; });
+
+    carousel.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - carousel.offsetLeft;
+      const walk = (x - startX) * 1;
+      carousel.scrollLeft = scrollLeft - walk;
+    });
+  }
+</script>
+
+</body>
+</html>
